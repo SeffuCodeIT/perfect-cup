@@ -36,14 +36,14 @@
 	<script type="text/javascript">
         		$(document).ready(function(){
 			
-			   $("#login").click(function(){
+			   $('#login').click(function(){
 				
 					email=$("#email").val();
 					password=$("#password").val();
 					 $.ajax({
 						type: "POST",
 						url: "pcheck.php",
-						data: "email="+email+"&password="+password,
+						data: "&email=" + email + "&password=" + password,
 						success: function(html){
 						  if(html=='true')
 						  {
@@ -104,7 +104,7 @@
                     </h2>
 					<div id="add_err2"></div>
                     <hr>       
-                    <form role="form">
+                    <form role="form" method="POST" action="pcheck.php">
                         <div class="row">
                             <div class="form-group col-lg-4">
                                 <label>Email Address</label>
