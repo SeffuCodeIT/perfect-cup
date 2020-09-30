@@ -32,6 +32,8 @@
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
+    <!-- javascript -->
+
     <script type="text/javascript">
         $(document).ready(function () {
 

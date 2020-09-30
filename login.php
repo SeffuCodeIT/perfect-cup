@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Perfect Cup</title>
+    <title>The Perfect Cup - Register</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -27,23 +27,22 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-     <!-- jQuery -->
-     <script src="js/jquery.js"></script>
-
-     	<!-- Script -->
+	
+	<!-- jQuery -->
+    <script src="js/jquery.js"></script>
+	
 	<!-- Script -->
 	<script type="text/javascript">
         		$(document).ready(function(){
 			
-			   $('#login').click(function(){
+			   $("#login").click(function(){
 				
 					email=$("#email").val();
 					password=$("#password").val();
 					 $.ajax({
 						type: "POST",
 						url: "pcheck.php",
-						data: "&email=" + email + "&password=" + password,
+						data: "email="+email+"&password="+password,
 						success: function(html){
 						  if(html=='true')
 						  {
@@ -80,31 +79,29 @@
 
 <body>
 
-    <div class="brand">Perfect Cup</div>
-    <div class="address-bar">Nairobi-Kenya</div>
+    <div class="brand">The Perfect Cup</div>
+    <div class="address-bar">3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>
 
     <!-- Navigation -->
-    <?php require_once 'nav.php'; 
-    
-    ?>
+    <?php require_once 'nav.php'; ?>
 
-    
-
-<div class="container">
+    <div class="container">
         <div class="row">
             <div class="box">
                 <div class="col-lg-12">
-
-                <div class="alert alert-danger">
+                    
+					<div class="alert alert-danger">
 					<strong>You must be logged in to view the blog.</strong>
 					</div>
-                    <hr>
-                    <h2 class="intro-text text-center">Log In
-                        <strong>form</strong>
+
+					
+					<hr>
+                    <h2 class="intro-text text-center">
+                        <strong>Login</strong>
                     </h2>
 					<div id="add_err2"></div>
                     <hr>       
-                    <form role="form" method="POST" action="pcheck.php">
+                    <form role="form">
                         <div class="row">
                             <div class="form-group col-lg-4">
                                 <label>Email Address</label>
@@ -116,15 +113,16 @@
                                 <input type="password" id="password" name="password" maxlength="10" class="form-control">
                             </div>
                             <div class="form-group col-lg-12">
-                                <button type="submit" id="login" class="btn btn-default">Log In</button>
+                                <button type="submit" id="login" class="btn btn-default">Login</button>
                             </div>
                         </div>
                     </form>
-                    <div class="form-group col-lg-12">
+					
+					<div class="form-group col-lg-12">
 						<a href="register.php"><button type="submit" class="btn btn-default">Not a Member? Register here</button></a>
 					</div>
 
-
+					
                 </div>
             </div>
         </div>
@@ -136,13 +134,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <p>Copyright &copy; The Perfect Cup 2020</p>
+                    <p>Copyright &copy; The Perfect Cup 2016</p>
                 </div>
             </div>
         </div>
     </footer>
-
-   
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
@@ -150,6 +146,3 @@
 </body>
 
 </html>
-
-
-

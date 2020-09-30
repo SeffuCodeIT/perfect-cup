@@ -1,4 +1,5 @@
 <?php
+
 //Open a new connection to the MySQL server
 $mysqli = new mysqli('localhost', 'root', '1234', 'perfectcup');
 
@@ -11,7 +12,8 @@ $fname = mysqli_real_escape_string($mysqli, $_POST['fname']);
 $email = mysqli_real_escape_string($mysqli, $_POST['email']);
 $message= mysqli_real_escape_string($mysqli, $_POST['message']);
 
-$email2 = "";
+
+$email2 = "f6e5763bc4a806@inbox.mailtrap.io";
 $subject = "Test Message";
 
 if (strlen($fname) > 50) {
@@ -36,42 +38,41 @@ if (strlen($fname) > 50) {
     echo 'message_short';
 
 } else {
-	 ///MAILER
+	
+	 //MAILER
 
-     require 'phpmailer/PHPMailerAutoload.php';
+    require 'phpmailer/PHPMailerAutoload.php';
 
     $mail = new PHPMailer;
-     
-     //$mail->SMTPDebug = 3;                               // Enable verbose debug output
- 
-     $mail->isSMTP();                                      // Set mailer to use SMTP
-     $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-     $mail->SMTPAuth = true;                               // Enable SMTP authentication
-     $mail->Username = 'kamauseffu@gmail.com';                 // SMTP username
-     $mail->Password = 'p222ad_*$';                           // SMTP password
-     $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-     $mail->Port = 587;                                    // TCP port to connect to
- 
-     $mail->AddReplyTo($email);
-     $mail->From = $email2;
-     $mail->FromName = $fname;
-     $mail->addAddress('kamauseffu@gmail.com', 'Admin');     // Add a recipient
- 
-     $mail->isHTML(true);                                  // Set email format to HTML
- 
-     $mail->Subject = $subject;
-     $mail->Body = $message;
-     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
- 
-     if (!$mail->send()) {
-         echo 'Message could not be sent.';
-         echo 'Mailer Error: ' . $mail->ErrorInfo;
-     } else {
-         echo 'true';
-     }
- 
- 
- }
- ?>
+	
+	$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
+    $mail->isSMTP();                                      // Set mailer to use SMTP
+    $mail->Host = 'smtp.mailtrap.io';  // Specify main and backup SMTP servers
+    $mail->SMTPAuth = true;                               // Enable SMTP authentication
+    $mail->Username = 'f6e5763bc4a806@inbox.mailtrap.io';                 // SMTP username
+    $mail->Password = '929736500a02ac';                           // SMTP password
+    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+    $mail->Port = 587;                                    // TCP port to connect to
+
+	$mail->AddReplyTo($email);
+    $mail->From = $email2;
+    $mail->FromName = $fname;
+    $mail->addAddress('', 'Admin');     // Add a recipient
+
+    $mail->isHTML(true);                                  // Set email format to HTML
+
+    $mail->Subject = $subject;
+    $mail->Body = $message;
+    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+    if (!$mail->send()) {
+        echo 'Message could not be sent.';
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
+    } else {
+        echo 'true';
+    }
+
+
+}
 ?>
